@@ -138,6 +138,10 @@ class ElasticsearchProfilerTest extends AbstractElasticsearchTestCase
         $this->assertNotEmpty($query['host'], 'Host should not be empty');
         unset($query['host']);
 
+        $this->assertArrayHasKey('port', $query, 'Query should have port set.');
+        $this->assertNotEmpty($query['port'], 'Port should not be empty');
+        unset($query['port']);
+
         $this->assertArrayHasKey('path', $query, 'Query should have host path set.');
         $this->assertNotEmpty($query['path'], 'Path should not be empty.');
         unset($query['path']);
