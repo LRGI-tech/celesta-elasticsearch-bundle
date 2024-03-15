@@ -83,6 +83,9 @@ class Converter
         $object = new $namespace();
 
         foreach ($raw as $field => $value) {
+            if (!array_key_exists($field, $metadata)) {
+                continue;
+            }
             $fieldMeta = $metadata[$field];
             $setter = $fieldMeta['setter'];
 
