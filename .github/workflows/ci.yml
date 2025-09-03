@@ -18,7 +18,7 @@ concurrency:
 jobs:
   tests:
     if: github.event.review.state == 'APPROVED' || github.event.pull_request.merged == true || github.event_name == 'push'
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Setting up Worker Permissions
         run: sudo chmod -R 777 ${{ github.workspace }}
