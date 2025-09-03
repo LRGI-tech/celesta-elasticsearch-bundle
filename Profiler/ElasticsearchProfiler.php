@@ -91,12 +91,12 @@ class ElasticsearchProfiler implements DataCollectorInterface
         return $this->indexes;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'ongr.profiler';
     }
 
-    private function handleRecords($route, $records)
+    private function handleRecords($route, $records): void
     {
         $this->count += count($records) / 2;
         $queryBody = '';
@@ -112,7 +112,7 @@ class ElasticsearchProfiler implements DataCollectorInterface
         }
     }
 
-    private function addQuery($route, $record, $queryBody)
+    private function addQuery($route, $record, $queryBody): void
     {
         parse_str(parse_url($record['context']['uri'], PHP_URL_QUERY), $httpParameters);
         $body = json_decode(trim($queryBody, " '\r\t\n"));
@@ -127,7 +127,7 @@ class ElasticsearchProfiler implements DataCollectorInterface
         );
     }
 
-    private function getRoute(Request $request)
+    private function getRoute(Request $request): string
     {
         $route = $request->attributes->get('_route');
 
