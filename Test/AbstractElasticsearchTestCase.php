@@ -100,7 +100,7 @@ abstract class AbstractElasticsearchTestCase extends WebTestCase
     {
         try {
             if (!array_key_exists($namespace, $this->indexes)) {
-                $this->indexes[$namespace] = self::getContainerReinitialize()->get($namespace);
+                $this->indexes[$namespace] = self::getContainer()->get($namespace);
             }
 
             if (!$this->indexes[$namespace]->indexExists() && $createIndex) {
