@@ -70,7 +70,7 @@ class CacheClearCommandTest extends AbstractElasticsearchTestCase
      */
     private function getCommand()
     {
-        $command = new CacheClearCommand(self::getContainer(true));
+        $command = new CacheClearCommand(self::getContainerReinitialize(true));
 
         return $command;
     }

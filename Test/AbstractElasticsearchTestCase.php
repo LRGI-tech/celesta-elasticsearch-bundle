@@ -82,19 +82,19 @@ abstract class AbstractElasticsearchTestCase extends WebTestCase
         }
     }
 
-    // protected static function getContainer($reinitialize = false, $kernelOptions = []): ContainerInterface
-    // {
-    //     if ($reinitialize && self::$booted) {
-    //         self::ensureKernelShutdown();
-    //         self::$cachedContainer = null;
-    //     }
+    protected static function getContainerReinitialize($reinitialize = false, $kernelOptions = []): ContainerInterface
+    {
+        if ($reinitialize && self::$booted) {
+            self::ensureKernelShutdown();
+            self::$cachedContainer = null;
+        }
 
-    //     if (!self::$cachedContainer) {
-    //         self::$cachedContainer = static::createClient(['environment' => 'test'])->getContainer();
-    //     }
+        if (!self::$cachedContainer) {
+            self::$cachedContainer = static::createClient(['environment' => 'test'])->getContainer();
+        }
 
-    //     return self::$cachedContainer;
-    // }
+        return self::$cachedContainer;
+    }
 
     protected function getIndex($namespace, $createIndex = true): IndexService
     {
