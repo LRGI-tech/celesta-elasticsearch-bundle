@@ -64,7 +64,7 @@ jobs:
           body="${{ fromJSON(steps.PR.outputs.pr).head.ref }}"
           branchRegex="^([a-zA-Z]+)-([0-9]+)$"
           if [[ "${{ fromJSON(steps.PR.outputs.pr).head.ref }}" =~ $branchRegex ]]; then
-              body="[${{ fromJSON(steps.PR.outputs.pr).head.ref }}](https://lrgi.atlassian.net/browse/${{ fromJSON(steps.PR.outputs.pr).head.ref }})"
+              body="[${{ fromJSON(steps.PR.outputs.pr).head.ref }}](https://celesta.atlassian.net/browse/${{ fromJSON(steps.PR.outputs.pr).head.ref }})"
           fi
           response=$(curl --write-out '%{http_code}' -L -X POST \
           -H "Accept: application/vnd.github+json" \
