@@ -82,7 +82,7 @@ abstract class AbstractElasticsearchTestCase extends WebTestCase
         }
     }
 
-    protected static function getContainer($reinitialize = false, $kernelOptions = []): ContainerInterface
+    protected static function getContainerReinitialize($reinitialize = false, $kernelOptions = []): ContainerInterface
     {
         if ($reinitialize && self::$booted) {
             self::ensureKernelShutdown();
